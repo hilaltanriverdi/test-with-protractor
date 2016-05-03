@@ -17,18 +17,14 @@ describe('test dfraud site for tabs',function(){
         accessButton.click();
 		browser.driver.sleep(2000);
 		
-		var applicationButton = element.all(by.css('button.md-hue-2')).get(0);
-        applicationButton.click();
-		browser.driver.sleep(2000);
-		
-		
-		var adminButton = element.all(by.css('button.md-hue-2')).get(1);
-        adminButton.click();
-		browser.driver.sleep(2000);
-		
-		var authenticationButton = element.all(by.css('button.md-hue-2')).get(2);
+		var authenticationButton = browser.findElement(by.xpath('//span[contains(text(),"Authentication")]'));
         authenticationButton.click();
-		browser.driver.sleep(2000);
+		
+		var authenticationButton = browser.findElement(by.xpath('//span[contains(text(),"Settings")]'));
+        authenticationButton.click();
+		
+		var accessButton = element(by.css('md-text ng-binding'));
+        accessButton.click();
 		
 		
 	});
