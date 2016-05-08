@@ -1,8 +1,8 @@
 describe('test for hepsiburada login',function(){
-	var hepsiburadaUrl="http://192.168.1.100:8080/#";
-	browser.ignoreSynchronization=true;
-	browser.manage().timeouts().pageLoadTimeout(10000);
-	it('hepsiburada login test', function(){
+	var hepsiburadaUrl="http://213.14.180.233/#";
+	
+		beforeEach(function() {
+		browser.driver.manage().window().maximize();
 		browser.get(hepsiburadaUrl+'/account/login');
 		
 		var usernameField = element(by.model('vm.username'));
@@ -14,14 +14,20 @@ describe('test for hepsiburada login',function(){
 		//click the 'sign in' button to log in
         var accessButton = element(by.css('button.md-raised'));
         accessButton.click();
-		browser.waitForAngular();
+		
+		browser.ignoreSynchronization = true;
+		
+		
 	});
 	
-	
-	it('hepsiburada logout test', function(){
+	it('hepsiburada login test2', function(){
+		browser.pause();
 		var merchantButton = browser.findElement(by.xpath('//span[contains(text(), "Merchant")]'));
-        merchantButton.click();
-		
+		logoutButton.click();
+		browser.waitForAngular();
 		
 	});
+	
+	
+	
 })
